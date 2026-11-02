@@ -1,0 +1,48 @@
+test_inode_buffer_geometry_and_neighbors (__main__.OfflineTests.test_inode_buffer_geometry_and_neighbors) ... 
+  test_inode_buffer_geometry_and_neighbors (__main__.OfflineTests.test_inode_buffer_geometry_and_neighbors) (block=1024, inode=512) ... FAIL
+
+======================================================================
+FAIL: test_inode_buffer_geometry_and_neighbors (__main__.OfflineTests.test_inode_buffer_geometry_and_neighbors) (block=1024, inode=512)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/deltree/tests/test_offline.py", line 445, in test_inode_buffer_geometry_and_neighbors
+    run("mkfs.xfs", "-f", "-b", f"size={block}", "-i", f"size={inode}",
+  File "/root/deltree/tests/test_offline.py", line 21, in run
+    raise AssertionError(f"{args}: {result.returncode}\n{result.stdout.decode(errors='replace')}\n{result.stderr.decode(errors='replace')}")
+AssertionError: ('mkfs.xfs', '-f', '-b', 'size=1024', '-i', 'size=512', '-m', 'rmapbt=1,reflink=0', PosixPath('/root/deltree/.xfs-deltree-test-p8hj9al5/test_inode_buffer_geometry_and_neighbors.img')): 1
+
+block size 1024 cannot be smaller than sector size 4096
+Usage: mkfs.xfs
+/* blocksize */		[-b size=num]
+/* config file */	[-c options=xxx]
+/* metadata */		[-m crc=0|1,finobt=0|1,uuid=xxx,rmapbt=0|1,reflink=0|1,
+			    inobtcount=0|1,bigtime=0|1]
+/* data subvol */	[-d agcount=n,agsize=n,file,name=xxx,size=num,
+			    (sunit=value,swidth=value|su=num,sw=num|noalign),
+			    sectsize=num,concurrency=num]
+/* force overwrite */	[-f]
+/* inode size */	[-i perblock=n|size=num,maxpct=n,attr=0|1|2,
+			    projid32bit=0|1,sparse=0|1,nrext64=0|1]
+/* no discard */	[-K]
+/* log subvol */	[-l agnum=n,internal,size=num,logdev=xxx,version=n
+			    sunit=value|su=num,sectsize=num,lazy-count=0|1,
+			    concurrency=num]
+/* label */		[-L label (maximum 12 characters)]
+/* naming */		[-n size=num,version=2|ci,ftype=0|1]
+/* no-op info only */	[-N]
+/* prototype file */	[-p fname]
+/* quiet */		[-q]
+/* realtime subvol */	[-r extsize=num,size=num,rtdev=xxx]
+/* sectorsize */	[-s size=num]
+/* version */		[-V]
+			devicename
+<devicename> is required unless -d name=xxx is given.
+<num> is xxx (bytes), xxxs (sectors), xxxb (fs blocks), xxxk (xxx KiB),
+      xxxm (xxx MiB), xxxg (xxx GiB), xxxt (xxx TiB) or xxxp (xxx PiB).
+<value> is xxx (512 byte blocks).
+
+
+----------------------------------------------------------------------
+Ran 1 test in 7.499s
+
+FAILED (failures=1)

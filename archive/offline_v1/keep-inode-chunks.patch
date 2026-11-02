@@ -1,0 +1,34 @@
+diff --git a/libxfs/xfs_ialloc.c b/libxfs/xfs_ialloc.c
+index 8fd149e..0d678fc 100644
+--- a/libxfs/xfs_ialloc.c
++++ b/libxfs/xfs_ialloc.c
+@@ -2064,6 +2064,9 @@ next:
+ 	return 0;
+ }
+ 
++/* Offline bulk deletion retains free inode chunks for reuse. */
++int xfs_deltree_keep_inode_chunks;
++
+ STATIC int
+ xfs_difree_inobt(
+ 	struct xfs_perag		*pag,
+@@ -2135,7 +2138,8 @@ xfs_difree_inobt(
+ 	 * remove the chunk if the block size is large enough for multiple inode
+ 	 * chunks (that might not be free).
+ 	 */
+-	if (!xfs_has_ikeep(mp) && rec.ir_free == XFS_INOBT_ALL_FREE &&
++	if (!xfs_deltree_keep_inode_chunks && !xfs_has_ikeep(mp) &&
++	    rec.ir_free == XFS_INOBT_ALL_FREE &&
+ 	    mp->m_sb.sb_inopblock <= XFS_INODES_PER_CHUNK) {
+ 		xic->deleted = true;
+ 		xic->first_ino = xfs_agino_to_ino(pag, rec.ir_startino);
+@@ -2281,7 +2285,8 @@ xfs_difree_finobt(
+ 	 * enough for multiple chunks. Leave the finobt record to remain in sync
+ 	 * with the inobt.
+ 	 */
+-	if (!xfs_has_ikeep(mp) && rec.ir_free == XFS_INOBT_ALL_FREE &&
++	if (!xfs_deltree_keep_inode_chunks && !xfs_has_ikeep(mp) &&
++	    rec.ir_free == XFS_INOBT_ALL_FREE &&
+ 	    mp->m_sb.sb_inopblock <= XFS_INODES_PER_CHUNK) {
+ 		error = xfs_btree_delete(cur, &i);
+ 		if (error)

@@ -1,0 +1,3 @@
+[submodule "vendor/xfsprogs"]
+	path = vendor/xfsprogs
+	url = https://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git

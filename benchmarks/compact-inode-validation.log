@@ -1,0 +1,73 @@
+   [HEADERS] include
+   [HEADERS] libxfs
+Building include
+Building libfrog
+Building libxfs
+Building libxlog
+CRC32C matches portable libfrog for 131072 seed/alignment/length cases
+test_4k_sectors (__main__.OfflineTests.test_4k_sectors) ... ok
+test_apply_repair_and_mount (__main__.OfflineTests.test_apply_repair_and_mount) ... [delete +0.0s] open and validate filesystem; read=0.0 MiB; written=0.0 MiB; peak-RSS=2.3 MiB
+[delete +0.0s] open and validate filesystem; read=0.0 MiB; written=0.0 MiB; peak-RSS=2.8 MiB
+[delete +0.0s] check XFS log; read=0.0 MiB; written=0.0 MiB; peak-RSS=2.8 MiB
+[delete +0.0s] check XFS log; read=1.9 MiB; written=0.0 MiB; peak-RSS=3.7 MiB
+[delete +0.0s] resolve target path; read=1.9 MiB; written=0.0 MiB; peak-RSS=3.7 MiB
+Working-set target ~128 MiB; subtree limit=32768, checkpoint inode target=32768
+[delete +0.0s] resolve target path; read=1.9 MiB; written=0.0 MiB; peak-RSS=3.7 MiB
+[delete +0.0s] scan directories: 0 inodes found; avg 0 inodes found/s; read=1.9 MiB; written=0.0 MiB; peak-RSS=3.7 MiB
+[delete +0.0s] scan directories: 2955 inodes found; avg 353758 inodes found/s; read=2.2 MiB; written=0.0 MiB; peak-RSS=4.2 MiB
+[delete +0.0s] flush directory changes to overlay; read=2.2 MiB; written=0.0 MiB; peak-RSS=4.2 MiB
+[delete +0.0s] flush directory changes to overlay; read=2.2 MiB; written=0.0 MiB; peak-RSS=4.2 MiB
+[delete +0.0s] prepare inode changes: 0/2955 (0.0%) inodes; avg 0 inodes/s; read=2.2 MiB; written=0.0 MiB; peak-RSS=4.2 MiB
+[delete +0.0s] prepare inode changes: 2955/2955 (100.0%) inodes; avg 168625 inodes/s; read=3.7 MiB; written=0.0 MiB; peak-RSS=7.1 MiB
+[delete +0.0s] sort data extents; read=3.7 MiB; written=0.0 MiB; peak-RSS=7.1 MiB
+[delete +0.0s] sort data extents; read=3.7 MiB; written=0.0 MiB; peak-RSS=7.1 MiB
+[delete +0.0s] update reverse mappings: 0/513 (0.0%) extents; avg 0 extents/s; read=3.7 MiB; written=0.0 MiB; peak-RSS=7.1 MiB
+[delete +0.0s] update reverse mappings: 513/513 (100.0%) extents; avg 3033582 extents/s; read=3.7 MiB; written=0.0 MiB; peak-RSS=7.1 MiB
+[delete +0.0s] prepare combined extent frees: 0/513 (0.0%) extents; avg 0 extents/s; read=3.7 MiB; written=0.0 MiB; peak-RSS=7.1 MiB
+Combined 513 data extents into 12 free-space updates
+Prepare phases: load/forks=0.013220 allocation=0.000321 cores=0.002713 bulk-free=0.000389
+[delete +0.0s] prepare combined extent frees: 513/513 (100.0%) extents; avg 6836626 extents/s; read=3.7 MiB; written=0.0 MiB; peak-RSS=7.1 MiB
+[delete +0.0s] flush metadata to memory overlay; read=3.7 MiB; written=0.0 MiB; peak-RSS=7.1 MiB
+Checkpoint 1: inodes=2955 staged-sectors=3016
+[delete +0.0s] flush metadata to memory overlay; read=5.2 MiB; written=0.0 MiB; peak-RSS=9.3 MiB
+[delete +0.0s] sort staged metadata; read=5.2 MiB; written=0.0 MiB; peak-RSS=9.3 MiB
+[delete +0.0s] sort staged metadata; read=5.2 MiB; written=0.0 MiB; peak-RSS=9.4 MiB
+[delete +0.0s] write undo journal: 0/3016 (0.0%) sectors examined; avg 0 sectors examined/s; read=5.2 MiB; written=0.0 MiB; peak-RSS=9.4 MiB
+[delete +0.0s] write undo journal: 3016/3016 (100.0%) sectors examined; avg 2867582 sectors examined/s; read=6.7 MiB; written=1.5 MiB; peak-RSS=10.3 MiB
+[delete +0.0s] sync undo journal; read=6.7 MiB; written=1.5 MiB; peak-RSS=10.3 MiB
+Undo journal durable; applying 3016 changed sectors
+[delete +0.0s] sync undo journal; read=6.7 MiB; written=1.5 MiB; peak-RSS=10.3 MiB
+[delete +0.0s] persist offline guard; read=6.7 MiB; written=1.5 MiB; peak-RSS=10.3 MiB
+[delete +0.0s] persist offline guard; read=6.7 MiB; written=1.5 MiB; peak-RSS=10.3 MiB
+[delete +0.0s] apply metadata: 0/3016 (0.0%) sectors; avg 0 sectors/s; read=6.7 MiB; written=1.5 MiB; peak-RSS=10.3 MiB
+[delete +0.0s] apply metadata: 3016/3016 (100.0%) sectors; avg 6688623 sectors/s; read=6.8 MiB; written=3.0 MiB; peak-RSS=10.3 MiB
+[delete +0.0s] sync filesystem and final superblock; read=6.8 MiB; written=3.0 MiB; peak-RSS=10.3 MiB
+Checkpoint 1 committed; undo covers only this batch.
+Deletion committed in 1 checkpoints.
+Plan: free=2954 preserve-external-links=1 checkpoints=1
+[delete +0.1s] sync filesystem and final superblock; read=6.8 MiB; written=3.0 MiB; peak-RSS=9.9 MiB
+Timing: setup=0.004771 scan=0.008454 prepare=0.021477 apply=0.018380 total=0.053201 seconds
+
+ok
+test_bulk_interleaved_survivors_and_inode_reuse (__main__.OfflineTests.test_bulk_interleaved_survivors_and_inode_reuse) ... ok
+test_checkpoint_interruption_and_resume (__main__.OfflineTests.test_checkpoint_interruption_and_resume) ... ok
+test_completed_journal_refuses_rollback (__main__.OfflineTests.test_completed_journal_refuses_rollback) ... ok
+test_corrupt_journal_rejected_without_writes (__main__.OfflineTests.test_corrupt_journal_rejected_without_writes) ... ok
+test_dense_rmap_rebuild_recovery_and_survivors (__main__.OfflineTests.test_dense_rmap_rebuild_recovery_and_survivors) ... ok
+test_dry_run_changes_no_bytes (__main__.OfflineTests.test_dry_run_changes_no_bytes) ... ok
+test_existing_journal_not_overwritten (__main__.OfflineTests.test_existing_journal_not_overwritten) ... ok
+test_fragmented_inode_bound_before_writes (__main__.OfflineTests.test_fragmented_inode_bound_before_writes) ... ok
+test_interrupted_commit_recovers_exactly (__main__.OfflineTests.test_interrupted_commit_recovers_exactly) ... ok
+test_invalid_memory_limit (__main__.OfflineTests.test_invalid_memory_limit) ... ok
+test_journal_wrong_image_rejected (__main__.OfflineTests.test_journal_wrong_image_rejected) ... ok
+test_mounted_image_and_device_refused (__main__.OfflineTests.test_mounted_image_and_device_refused) ... ok
+test_multiple_checkpoints_and_dry_run_memory (__main__.OfflineTests.test_multiple_checkpoints_and_dry_run_memory) ... ok
+test_quota_filesystem_rejected (__main__.OfflineTests.test_quota_filesystem_rejected) ... ok
+test_root_missing_and_non_directory_refused (__main__.OfflineTests.test_root_missing_and_non_directory_refused) ... ok
+test_unmounted_block_device (__main__.OfflineTests.test_unmounted_block_device) ... ok
+test_v1_journal_recovery (__main__.OfflineTests.test_v1_journal_recovery) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 64.848s
+
+OK

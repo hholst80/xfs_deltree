@@ -1,0 +1,46 @@
+make -C vendor/xfsprogs headers
+make[1]: Entering directory '/root/deltree/vendor/xfsprogs'
+   [HEADERS] include
+   [HEADERS] libxfs
+make[1]: Leaving directory '/root/deltree/vendor/xfsprogs'
+make -C vendor/xfsprogs libxfs libxlog
+make[1]: Entering directory '/root/deltree/vendor/xfsprogs'
+Building include
+Building libfrog
+Building libxfs
+Building libxlog
+make[1]: Leaving directory '/root/deltree/vendor/xfsprogs'
+cc  -o xfs_deltree xfs_deltree.o walker.o stage.o bulk_inode.o bulk_extent.o fast_crc.o -Wl,--wrap=pread64,--wrap=pwrite64,--wrap=write,--wrap=crc32c_le -Wl,--start-group vendor/xfsprogs/libxlog/.libs/libxlog.a vendor/xfsprogs/libxfs/.libs/libxfs.a vendor/xfsprogs/libfrog/.libs/libfrog.a -Wl,--end-group -luuid -lurcu -lurcu-cds -lpthread -lblkid -lm
+cc -O2 -g -std=c99 -fno-strict-aliasing -Wall -Wextra -Werror -Wno-unused-parameter -o tests/test_crc tests/test_crc.c fast_crc.o -Wl,--wrap=crc32c_le vendor/xfsprogs/libfrog/.libs/libfrog.a
+./tests/test_crc
+CRC32C matches portable libfrog for 131072 seed/alignment/length cases
+python3 tests/test_offline.py
+test_4k_sectors (__main__.OfflineTests.test_4k_sectors) ... ok
+test_apply_repair_and_mount (__main__.OfflineTests.test_apply_repair_and_mount) ... Scanned 2955 unique inodes; preparing metadata changes
+Combined 513 data extents into 12 free-space updates
+Prepare phases: load/forks=0.008327 allocation=0.000271 cores=0.002556 bulk-free=0.000231
+Plan: free=2954 preserve-external-links=1 staged-sectors=3219
+Undo journal durable; applying 3017 changed sectors
+Deletion committed. Keep journal until the result is verified.
+Timing: setup=0.005442 scan=0.007185 prepare=0.014615 apply=0.014988 seconds
+
+ok
+test_bulk_interleaved_survivors_and_inode_reuse (__main__.OfflineTests.test_bulk_interleaved_survivors_and_inode_reuse) ... ok
+test_completed_journal_refuses_rollback (__main__.OfflineTests.test_completed_journal_refuses_rollback) ... ok
+test_corrupt_journal_rejected_without_writes (__main__.OfflineTests.test_corrupt_journal_rejected_without_writes) ... ok
+test_dense_rmap_rebuild_recovery_and_survivors (__main__.OfflineTests.test_dense_rmap_rebuild_recovery_and_survivors) ... ok
+test_dry_run_changes_no_bytes (__main__.OfflineTests.test_dry_run_changes_no_bytes) ... ok
+test_existing_journal_not_overwritten (__main__.OfflineTests.test_existing_journal_not_overwritten) ... ok
+test_interrupted_commit_recovers_exactly (__main__.OfflineTests.test_interrupted_commit_recovers_exactly) ... ok
+test_invalid_memory_limit (__main__.OfflineTests.test_invalid_memory_limit) ... ok
+test_journal_wrong_image_rejected (__main__.OfflineTests.test_journal_wrong_image_rejected) ... ok
+test_mounted_image_and_device_refused (__main__.OfflineTests.test_mounted_image_and_device_refused) ... ok
+test_quota_filesystem_rejected (__main__.OfflineTests.test_quota_filesystem_rejected) ... ok
+test_root_missing_and_non_directory_refused (__main__.OfflineTests.test_root_missing_and_non_directory_refused) ... ok
+test_unmounted_block_device (__main__.OfflineTests.test_unmounted_block_device) ... ok
+test_v1_journal_recovery (__main__.OfflineTests.test_v1_journal_recovery) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 44.366s
+
+OK

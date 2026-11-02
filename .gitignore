@@ -1,0 +1,15 @@
+*.o
+xfs_deltree
+xfs_deltree_sanitize
+.xfs-deltree-test-*/
+.xfs-deltree-bench-*/
+__pycache__/
+*.undo
+tests/test_crc
+
+# Disposable filesystem images and recovery artifacts
+*.img
+*.undo.next
+
+# Python bytecode
+*.py[cod]
